@@ -18,9 +18,7 @@ sudo apt install -y git vim htop gcc g++ build-essential nasm yasm tar python py
 sudo apt install zsh -y
 
 # setup my environment
-git clone https://github.com/yuhanchan/dotfiles.git
-mv dotfiles/* $HOME/
-rm -rf dotfiles/
+git clone https://github.com/yuhanchan/dotfiles.git && mv dotfiles/* $HOME/ && rm -rf dotfiles/
 echo "exec zsh" >> ~/.bashrc
 
 # optional 
