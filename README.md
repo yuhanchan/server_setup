@@ -1,4 +1,4 @@
-## This repo is to setup a new server with several lines
+## This repo is to setup a new server with one line
 
 ``` bash
 curl -L https://rb.gy/hjbpsu | sh
