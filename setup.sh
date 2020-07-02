@@ -12,7 +12,8 @@ sudo apt install -y git vim htop gcc g++ build-essential nasm yasm tar python py
                     python-pip python3-pip zip unzip autoconf automake cmake git-core \
                     libass-dev libfreetype6-dev libgnutls28-dev libsdl2-dev libtool \
                     libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-                    libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev
+                    libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libelf-dev \
+                    libssl-dev
 
 # get zsh
 sudo apt install zsh -y
