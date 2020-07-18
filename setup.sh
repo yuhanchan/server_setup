@@ -13,7 +13,7 @@ for pkg in  git vim htop gcc g++ build-essential nasm yasm tar python python3 \
             libass-dev libfreetype6-dev libgnutls28-dev libsdl2-dev libtool \
             libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
             libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libelf-dev \
-            libssl-dev; do
+            libssl-dev libprotobuf-dev protobuf-compiler; do
     sudo apt install -y $pkg
 done
 
@@ -21,7 +21,7 @@ done
 sudo apt install zsh -y
 
 # setup my environment
-git clone https://github.com/yuhanchan/dotfiles.git && cp -r -f -v dotfiles/. $HOME/ && rm -rf dotfiles/ && rm $HOME/README.md
+git clone https://github.com/yuhanchan/dotfiles.git && cp -r -f -v dotfiles/. $HOME/ && rm -rf dotfiles/ && rm $HOME/README.md && rm -rf .git
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "exec zsh" >> ~/.bashrc
