@@ -16,7 +16,7 @@ for pkg in  git vim htop gcc g++ build-essential nasm yasm tar \
             libssl-dev libprotobuf-dev protobuf-compiler \
             python-dev python-setuptools python-smbus libncursesw5-dev \
             libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev \
-            openssl libffi-dev libbz2-dev; do
+            openssl libffi-dev libbz2-dev liblzma-dev libreadline-dev; do
     sudo apt install -y $pkg
 done
 
