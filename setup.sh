@@ -8,8 +8,8 @@ sudo apt update
 sudo apt upgrade -y
 
 # install essential pkgs
-for pkg in  git vim htop gcc g++ build-essential nasm yasm tar python python3 \
-            python-pip python3-pip zip unzip autoconf automake cmake git-core \
+for pkg in  git vim htop gcc g++ build-essential nasm yasm tar \
+            zip unzip autoconf automake cmake git-core \
             libass-dev libfreetype6-dev libgnutls28-dev libsdl2-dev libtool \
             libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
             libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libelf-dev \
