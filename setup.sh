@@ -13,7 +13,10 @@ for pkg in  git vim htop gcc g++ build-essential nasm yasm tar \
             libass-dev libfreetype6-dev libgnutls28-dev libsdl2-dev libtool \
             libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
             libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libelf-dev \
-            libssl-dev libprotobuf-dev protobuf-compiler; do
+            libssl-dev libprotobuf-dev protobuf-compiler \
+            python-dev python-setuptools python-smbus libncursesw5-dev \
+            libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev \
+            openssl libffi-dev libbz2-dev; do
     sudo apt install -y $pkg
 done
 
