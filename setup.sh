@@ -14,7 +14,7 @@ for pkg in  git vim htop gcc g++ build-essential nasm yasm tar \
             libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
             libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libelf-dev \
             libssl-dev libprotobuf-dev protobuf-compiler \
-            python-dev python-setuptools python-smbus libncursesw5-dev \
+            python-dev python-setuptools libncursesw5-dev \
             libgdbm-dev libc6-dev zlib1g-dev libsqlite3-dev tk-dev \
             openssl libffi-dev libbz2-dev liblzma-dev libreadline-dev; do
     sudo apt install -y $pkg
@@ -30,7 +30,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # echo "exec zsh" >> ~/.bashrc
 
 # optional 
-sudo apt install docker.io -y
+# sudo apt install docker.io -y
 
 # install pyenv
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
