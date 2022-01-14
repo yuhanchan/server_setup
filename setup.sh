@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
 # This script is for ubuntu server setup
 
 set -e
@@ -37,6 +42,10 @@ ln -s $HOME/Misc/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/Misc/dotfiles/.vim $HOME/.vim
 ln -s $HOME/Misc/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/Misc/dotfiles/.tmux $HOME/.tmux
+
+# conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+echo -e "${GREEN}Setup finished, run ${CYAN}bash Miniconda3-latest-Linux-x86_64.sh ${GREEN}to set up conda${NC}"
 
 # optional 
 # sudo apt install docker.io -y
