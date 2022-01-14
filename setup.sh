@@ -22,11 +22,19 @@ done
 
 # get zsh
 sudo apt install zsh -y
-
-# setup my environment
-# git clone --recurse-submodules https://github.com/yuhanchan/dotfiles.git && cp -r -f -v dotfiles/. $HOME/
-# rm -rf dotfiles/ && rm $HOME/README.md && rm -rf .git
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone --recurse-submodules https://github.com/yuhanchan/dotfiles.git $HOME/Misc/dotfiles
+ln -s $HOME/Misc/dotfiles/.dotfiles $HOME/.dotfiles 
+ln -s $HOME/Misc/dotfiles/.commonrc $HOME/.commonrc
+ln -s $HOME/Misc/dotfiles/.bashrc $HOME/.bashrc
+ln -s $HOME/Misc/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/Misc/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/Misc/dotfiles/.vim $HOME/.vim
+ln -s $HOME/Misc/dotfiles/.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/Misc/dotfiles/.tmux $HOME/.tmux
+# setup my environment
+# rm -rf dotfiles/ && rm $HOME/README.md && rm -rf .git
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # echo "exec zsh" >> ~/.bashrc
