@@ -106,7 +106,10 @@ while true; do
     case $choice in 
         y)
             echo -e "\n"
-            sudo apt install neovim -y
+            # apt version is usually old
+            wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+            sudo dpkg -i nvim-linux64.deb
+            rm nvim-linux64.deb
             break
             ;;
         n)
@@ -148,6 +151,7 @@ while true; do
             echo -e "\n"
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
             bash Miniconda3-latest-Linux-x86_64.sh
+            rm Miniconda3-latest-Linux-x86_64.sh
             break
             ;;
         n)
