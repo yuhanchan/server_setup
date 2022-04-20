@@ -280,7 +280,33 @@ done
 
 
 while true; do
-    echo -en "${CYAN}Step12: Clone my dotfiles from github? [y/n] $NC"
+    echo -en "${CYAN}Step12: Install nodejs? This is needed if you want to use copilot in neovim [y/n] $NC"
+    read -n 1 choice
+    case $choice in 
+        y)
+            echo -e "\n"
+            mkdir -p $HOME/local
+            pushd $HOME/local
+            wget https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+            tar -xvf node-v16.14.2-linux-x64.tar.xz
+            rm node-v16.14.2-linux-x64.tar.xz
+            echo -e "${GREEN}nodejs 16 and npm installed, add $HOME/local/node-v16.14.2-linux-x64/bin to your PATH $NC"
+            popd
+            break
+            ;;
+        n)
+            echo -e "\n"
+            break
+            ;;
+        *)
+            echo -e "\nPlease type [y/n]"
+            ;;
+    esac
+done
+
+
+while true; do
+    echo -en "${CYAN}Step13: Clone my dotfiles from github? [y/n] $NC"
     read -n 1 choice
     case $choice in 
         y)
@@ -325,7 +351,7 @@ while true; do
 done
 
 
-echo -e "${CYAN}Step13: Choose dotfiles to use? $NC"
+echo -e "${CYAN}Step14: Choose dotfiles to use? $NC"
 echo -en "${CYAN}.commonrc .bashrc .zshrc? [y/n] $NC"
 while true; do
     read -n 1 choice
