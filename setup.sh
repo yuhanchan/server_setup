@@ -430,5 +430,23 @@ while true; do
             ;;
     esac
 done
-
+echo -en "${CYAN}.gitconfig? [y/n] $NC"
+while true; do
+    read -n 1 choice
+    case $choice in 
+        y)
+            echo -e "\n"
+            [[ -f $HOME/.gitconfig ]] && rm $HOME/.gitconfig
+            ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+            break
+            ;;
+        n)
+            echo -e "\n"
+            break
+            ;;
+        *)
+            echo -e "\nPlease type [y/n]"
+            ;;
+    esac
+done
 echo -e "\n${GREEN}Setup Script finished${NC}"
