@@ -205,36 +205,36 @@ while true; do
 done
 
 while true; do
-    echo -en "${CYAN}Step10: Setup neovim env? [y/n] $NC"
+    echo -en "${CYAN}Step10: Get Packer (neovim package manager)? [y/n] $NC"
     read -n 1 choice
     case $choice in 
         y)
             echo -e "\n"
-            # ftplugin: for different language indentation rule files
-            # lint: for different language linting files
-            # snippet: for code snippet
-            mkdir -p $HOME/.config/nvim/{ftplugin,lint,lua,snippet}
+            # # ftplugin: for different language indentation rule files
+            # # lint: for different language linting files
+            # # snippet: for code snippet
+            # mkdir -p $HOME/.config/nvim/{ftplugin,lint,lua,snippet}
 
-            # basic: for basic setting files
-            # conf: for plugin setting files
-            # dap: for dap setting files
-            # lsp: for lsp setting files
-            mkdir -p $HOME/.config/nvim/lua/{basic,conf,dap,lsp}
+            # # basic: for basic setting files
+            # # conf: for plugin setting files
+            # # dap: for dap setting files
+            # # lsp: for lsp setting files
+            # mkdir -p $HOME/.config/nvim/lua/{basic,conf,dap,lsp}
 
-            # init.lua: entry file
-            touch $HOME/.config/nvim/init.lua
+            # # init.lua: entry file
+            # touch $HOME/.config/nvim/init.lua
 
-            # config.lua: user setting file
-            touch $HOME/.config/nvim/lua/basic/config.lua
+            # # config.lua: user setting file
+            # touch $HOME/.config/nvim/lua/basic/config.lua
 
-            # keybinds.lua: user keybind file
-            touch $HOME/.config/nvim/lua/basic/keybinds.lua
+            # # keybinds.lua: user keybind file
+            # touch $HOME/.config/nvim/lua/basic/keybinds.lua
 
-            # plugins.lua: dependent plugins file
-            touch $HOME/.config/nvim/lua/basic/plugins.lua
+            # # plugins.lua: dependent plugins file
+            # touch $HOME/.config/nvim/lua/basic/plugins.lua
 
-            # settings.lua: for basic neovim settings
-            touch $HOME/.config/nvim/lua/basic/settings.lua
+            # # settings.lua: for basic neovim settings
+            # touch $HOME/.config/nvim/lua/basic/settings.lua
 
             # plugin manager
             git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -306,38 +306,14 @@ done
 
 
 while true; do
-    echo -en "${CYAN}Step13: Clone my dotfiles from github? [y/n] $NC"
+    echo -en "${CYAN}Step13: Install lazygit? [y/n] $NC"
     read -n 1 choice
     case $choice in 
         y)
             echo -e "\n"
-            if [ -d $HOME/dotfiles ]
-            then
-                while true; do
-                    echo -e "${CYAN}$HOME/dotfiles folder exists, do you want to remove it and clone a new one? [y/n] $NC"
-                    read -n 1 a
-                    case $a in
-                        y)
-                            echo -e "\n"
-                            echo -e "${CYAN}Removing $HOME/dotfiles...$NC"
-                            rm -rf $HOME/dotfiles
-                            echo -e "${CYAN}Cloning $HOME/dotfiles...$NC"
-                            git clone https://github.com/yuhanchan/dotfiles.git $HOME/dotfiles
-                            break
-                            ;;
-                        n)
-                            echo -e "\n"
-                            break
-                            ;;
-                        *)
-                            echo -e "\nPlease type [y/n]"
-                            ;;
-                    esac
-                done
-            else
-                echo -e "${CYAN}$HOME/dotfiles not exists, cloning... $NC"
-                git clone https://github.com/yuhanchan/dotfiles.git $HOME/dotfiles
-            fi
+            sudo add-apt-repository ppa:lazygit-team/release
+            sudo apt-get update
+            sudo apt-get install lazygit
             break
             ;;
         n)
@@ -351,102 +327,149 @@ while true; do
 done
 
 
-echo -e "${CYAN}Step14: Choose dotfiles to use? $NC"
-echo -en "${CYAN}.commonrc .bashrc .zshrc? [y/n] $NC"
-while true; do
-    read -n 1 choice
-    case $choice in 
-        y)
-            echo -e "\n"
-            [[ -d $HOME/.dotfiles ]] && rm -rf $HOME/.dotfiles
-            ln -s $HOME/dotfiles/.dotfiles $HOME/.dotfiles
+# while true; do
+#     echo -en "${CYAN}Step13: Clone my dotfiles from github? [y/n] $NC"
+#     read -n 1 choice
+#     case $choice in 
+#         y)
+#             echo -e "\n"
+#             if [ -d $HOME/dotfiles ]
+#             then
+#                 while true; do
+#                     echo -e "${CYAN}$HOME/dotfiles folder exists, do you want to remove it and clone a new one? [y/n] $NC"
+#                     read -n 1 a
+#                     case $a in
+#                         y)
+#                             echo -e "\n"
+#                             echo -e "${CYAN}Removing $HOME/dotfiles...$NC"
+#                             rm -rf $HOME/dotfiles
+#                             echo -e "${CYAN}Cloning $HOME/dotfiles...$NC"
+#                             git clone https://github.com/yuhanchan/dotfiles.git $HOME/dotfiles
+#                             break
+#                             ;;
+#                         n)
+#                             echo -e "\n"
+#                             break
+#                             ;;
+#                         *)
+#                             echo -e "\nPlease type [y/n]"
+#                             ;;
+#                     esac
+#                 done
+#             else
+#                 echo -e "${CYAN}$HOME/dotfiles not exists, cloning... $NC"
+#                 git clone https://github.com/yuhanchan/dotfiles.git $HOME/dotfiles
+#             fi
+#             break
+#             ;;
+#         n)
+#             echo -e "\n"
+#             break
+#             ;;
+#         *)
+#             echo -e "\nPlease type [y/n]"
+#             ;;
+#     esac
+# done
 
-            [[ -f $HOME/.commonrc ]] && rm $HOME/.commonrc
-            ln -s $HOME/dotfiles/.commonrc $HOME/.commonrc
 
-            [[ -f $HOME/.bashrc ]] && rm $HOME/.bashrc
-            ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
+# echo -e "${CYAN}Step14: Choose dotfiles to use? $NC"
+# echo -en "${CYAN}.commonrc .bashrc .zshrc? [y/n] $NC"
+# while true; do
+#     read -n 1 choice
+#     case $choice in 
+#         y)
+#             echo -e "\n"
+#             [[ -d $HOME/.dotfiles ]] && rm -rf $HOME/.dotfiles
+#             ln -s $HOME/dotfiles/.dotfiles $HOME/.dotfiles
 
-            [[ -f $HOME/.zshrc ]] && rm $HOME/.zshrc
-            ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-            break
-            ;;
-        n)
-            echo -e "\n"
-            break
-            ;;
-        *)
-            echo -e "\nPlease type [y/n]"
-            ;;
-    esac
-done
-echo -en "${CYAN}.tmux.conf? [y/n] $NC"
-while true; do
-    read -n 1 choice
-    case $choice in 
-        y)
-            echo -e "\n"
-            [[ -f $HOME/.tmux.conf ]] && rm $HOME/.tmux.conf
-            ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+#             [[ -f $HOME/.commonrc ]] && rm $HOME/.commonrc
+#             ln -s $HOME/dotfiles/.commonrc $HOME/.commonrc
 
-            [[ -d $HOME/.tmux/plugins/tpm ]] && rm -rf $HOME/.tmux/plugins/tpm
-            mkdir -p $HOME/.tmux/plugins
-            git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
-            echo -e "${GREEN}.tmux.conf created, tpm (tmux plugin manager) installed $NC"
-            echo -e "${GREEN}When you first run tmux, do Ctrl+b I to install plugins$NC"
-            break
-            ;;
-        n)
-            echo -e "\n"
-            break
-            ;;
-        *)
-            echo -e "\nPlease type [y/n]"
-            ;;
-    esac
-done
-echo -en "${CYAN}.vimrc? [y/n] $NC"
-while true; do
-    read -n 1 choice
-    case $choice in 
-        y)
-            echo -e "\n"
-            [[ -f $HOME/.vimrc ]] && rm $HOME/.vimrc
-            ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+#             [[ -f $HOME/.bashrc ]] && rm $HOME/.bashrc
+#             ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
 
-            [[ -f $HOME/.vim/autoload/plug.vim ]] && rm $HOME/.vim/autoload/plug.vim
-            curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            echo -e "${GREEN}.vim plugin manager installed. $NC"
-            echo -e "${GREEN}When run vim for the first time, run :PlugInstall to install plugins. $NC"
-            break
-            ;;
-        n)
-            echo -e "\n"
-            break
-            ;;
-        *)
-            echo -e "\nPlease type [y/n]"
-            ;;
-    esac
-done
-echo -en "${CYAN}.gitconfig? [y/n] $NC"
-while true; do
-    read -n 1 choice
-    case $choice in 
-        y)
-            echo -e "\n"
-            [[ -f $HOME/.gitconfig ]] && rm $HOME/.gitconfig
-            ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-            break
-            ;;
-        n)
-            echo -e "\n"
-            break
-            ;;
-        *)
-            echo -e "\nPlease type [y/n]"
-            ;;
-    esac
-done
+#             [[ -f $HOME/.zshrc ]] && rm $HOME/.zshrc
+#             ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+#             break
+#             ;;
+#         n)
+#             echo -e "\n"
+#             break
+#             ;;
+#         *)
+#             echo -e "\nPlease type [y/n]"
+#             ;;
+#     esac
+# done
+# echo -en "${CYAN}.tmux.conf? [y/n] $NC"
+# while true; do
+#     read -n 1 choice
+#     case $choice in 
+#         y)
+#             echo -e "\n"
+#             [[ -f $HOME/.tmux.conf ]] && rm $HOME/.tmux.conf
+#             ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+
+#             [[ -d $HOME/.tmux/plugins/tpm ]] && rm -rf $HOME/.tmux/plugins/tpm
+#             mkdir -p $HOME/.tmux/plugins
+#             git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+#             echo -e "${GREEN}.tmux.conf created, tpm (tmux plugin manager) installed $NC"
+#             echo -e "${GREEN}When you first run tmux, do Ctrl+b I to install plugins$NC"
+#             break
+#             ;;
+#         n)
+#             echo -e "\n"
+#             break
+#             ;;
+#         *)
+#             echo -e "\nPlease type [y/n]"
+#             ;;
+#     esac
+# done
+# echo -en "${CYAN}.vimrc? [y/n] $NC"
+# while true; do
+#     read -n 1 choice
+#     case $choice in 
+#         y)
+#             echo -e "\n"
+#             [[ -f $HOME/.vimrc ]] && rm $HOME/.vimrc
+#             ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+
+#             [[ -f $HOME/.vim/autoload/plug.vim ]] && rm $HOME/.vim/autoload/plug.vim
+#             curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#             echo -e "${GREEN}.vim plugin manager installed. $NC"
+#             echo -e "${GREEN}When run vim for the first time, run :PlugInstall to install plugins. $NC"
+#             break
+#             ;;
+#         n)
+#             echo -e "\n"
+#             break
+#             ;;
+#         *)
+#             echo -e "\nPlease type [y/n]"
+#             ;;
+#     esac
+# done
+# echo -en "${CYAN}.gitconfig? [y/n] $NC"
+# while true; do
+#     read -n 1 choice
+#     case $choice in 
+#         y)
+#             echo -e "\n"
+#             [[ -f $HOME/.gitconfig ]] && rm $HOME/.gitconfig
+#             ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+#             break
+#             ;;
+#         n)
+#             echo -e "\n"
+#             break
+#             ;;
+#         *)
+#             echo -e "\nPlease type [y/n]"
+#             ;;
+#     esac
+# done
+
 echo -e "\n${GREEN}Setup Script finished${NC}"
