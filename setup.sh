@@ -273,8 +273,8 @@ while true; do
                     esac
                 done
             else
-                echo -e "${CYAN}$HOME/dotfiles not exists, cloning... $NC"
-                git clone https://github.com/yuhanchan/dotfiles.git $HOME/dotfiles
+                echo -e "${CYAN}$HOME/.dotfiles not exists, cloning... $NC"
+                git clone https://github.com/yuhanchan/dotfiles.git $HOME/.dotfiles
             fi
 
             echo -en "${CYAN}Calling dotbot to install dotfiles[y/n] $NC"
