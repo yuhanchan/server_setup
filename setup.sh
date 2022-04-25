@@ -36,7 +36,7 @@ while true; do
     case $choice in 
         y)
             echo -e "\n"
-            sudo apt install htop git vim gcc g++ build-essential tar zip unzip gawk \
+            sudo apt install htop git vim gcc g++ build-essential tar zip unzip gawk ripgrep \
                              autoconf automake cmake git-core nasm yasm tree curl xsel -y
             break
             ;;
