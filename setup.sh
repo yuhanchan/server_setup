@@ -336,4 +336,26 @@ while true; do
     esac
 done
 
+
+while true; do
+    echo -en "${CYAN}Step14: Install fzf? [y/n] $NC"
+    read -n 1 choice
+    case $choice in 
+        y)
+            echo -e "\n"
+            git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+            ~/.fzf/install
+            break
+            ;;
+        n)
+            echo -e "\n"
+            break
+            ;;
+        *)
+            echo -e "\nPlease type [y/n]"
+            ;;
+    esac
+done
+
+
 echo -e "\n${GREEN}Setup Script finished${NC}"
