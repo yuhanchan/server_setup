@@ -358,4 +358,55 @@ while true; do
 done
 
 
+while true; do
+    echo -en "${CYAN}Step15: [Optional] Install go? [y/n] $NC"
+    read -n 1 choice
+    case $choice in 
+        y)
+            echo -e "\n"
+            mkdir -p $HOME/local/go
+            pushd $HOME/local
+            wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+            rm -rf $HOME/local/go 
+            tar -xzf go1.18.1.linux-amd64.tar.gz
+            rm go1.18.1.linux-amd64.tar.gz
+            popd
+            break
+            ;;
+        n)
+            echo -e "\n"
+            break
+            ;;
+        *)
+            echo -e "\nPlease type [y/n]"
+            ;;
+    esac
+done
+
+
+while true; do
+    echo -en "${CYAN}Step16: [Optional] Install glow, for markdown preview in nvim? (require go installed) [y/n] $NC"
+    read -n 1 choice
+    case $choice in 
+        y)
+            echo -e "\n"
+            mkdir -p $HOME/local
+            pushd $HOME/local
+            git clone https://github.com/charmbracelet/glow.git
+            cd glow
+            go build
+            popd
+            break
+            ;;
+        n)
+            echo -e "\n"
+            break
+            ;;
+        *)
+            echo -e "\nPlease type [y/n]"
+            ;;
+    esac
+done
+
+
 echo -e "\n${GREEN}Setup Script finished${NC}"
